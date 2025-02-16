@@ -1,0 +1,37 @@
+{
+  "name": "bennu",
+  "version": "1.0.0",
+  "description": "AI-enhanced testing framework using Playwright and Ollama",
+  "scripts": {
+    "test:api": "playwright test src/tests/api/ --reporter=line,allure-playwright 2>&1 | tee test-results/api-test-log.txt || true",
+    "test:ui": "playwright test src/tests/ui/ --reporter=line,allure-playwright 2>&1 | tee test-results/ui-test-log.txt || true",
+    "test:all": "playwright test src/tests/ --reporter=line,allure-playwright 2>&1 | tee test-results/all-tests-log.txt || true",
+    "test:ui:ai": "playwright test src/tests/ui/specs/ai_*.spec.ts --reporter=line,allure-playwright 2>&1 | tee test-results/ui-ai-test-log.txt || true",
+    "test:api:ai": "playwright test src/tests/api/specs/ai_*.spec.ts --reporter=line,allure-playwright 2>&1 | tee test-results/ui-ai-test-log.txt || true",
+    "report:generate": "allure generate allure-results -o allure-report --clean",
+    "report:open": "allure open allure-report",
+    "test:api:report": "npm run test:api && npm run report:generate && npm run report:open",
+    "test:ui:report": "npm run test:ui && npm run report:generate && npm run report:open",
+    "test:all:report": "npm run test:all && npm run report:generate && npm run report:open",
+    "test:ui:ai:report": "npm run test:ui:ai && npm run report:generate && npm run report:open",
+    "test:api:ai:report": "npm run test:api:ai && npm run report:generate && npm run report:open"
+  },
+  "keywords": [
+    "testing",
+    "playwright",
+    "ai",
+    "automation",
+    "ollama"
+  ],
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.17.17",
+    "@wdio/allure-reporter": "^9.9.0",
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.15.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "elements": [
+    {
+      "element_description": "Header container",
+      "selectors": {
+        "data-test": "header-container"
+      }
+    },
+    {
+      "element_description": "Primary header",
+      "selectors": {
+        "data-test": "primary-header"
+      }
+    },
+    {
+      "element_description": "Menu button container",
+      "selectors": {
+        "data-test": "menu-button-container"
+      }
+    },
+    {
+      "element_description": "Inventory sidebar link",
+      "selectors": {
+        "id": "inventory_sidebar_link",
+        "data-test": "inventory-sidebar-link"
+      }
+    },
+    {
+      "element_description": "Inventory list",
+      "selectors": {
+        "data-test": "inventory-list"
+      }
+    },
+    {
+      "element_description": "Inventory item (first item)",
+      "selectors": {
+        "data-test": "inventory-item"
+      }
+    },
+    {
+      "element_description": "Inventory item image",
+      "selectors": {
+        "data-test": "inventory-item-img"
+      }
+    },
+    {
+      "element_description": "Inventory item description",
+      "selectors": {
+        "data-test": "inventory-item-description"
+      }
+    },
+    {
+      "element_description": "Inventory item name (first item)",
+      "selectors": {
+        "data-test": "inventory-item-name"
+      }
+    },
+    {
+      "element_description": "Add to cart button (for first inventory item)",
+      "selectors": {
+        "data-test": "add-to-cart-sauce-labs-backpack"
+      }
+    }
+  ]
+}

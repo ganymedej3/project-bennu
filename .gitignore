@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+allure*/
+
+# Build output directories (adjust these as needed)
+dist/
+build/
+
+# TypeScript compilation artifacts
+*.js
+*.js.map
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variable files
+.env
+.env.local
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Playwright test artifacts
+test-results/
+screenshots/
+
+# Coverage reports (if using coverage tools)
+coverage/

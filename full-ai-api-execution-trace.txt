@@ -1,0 +1,101 @@
+npm run test:api:ai:report                                                               INT ✘  3m 4s   00:22:37  
+
+> bennu@1.0.0 test:api:ai:report
+> npm run test:api:ai && npm run report:generate && npm run report:open
+
+
+> bennu@1.0.0 test:api:ai
+> playwright test src/tests/api/specs/ai_*.spec.ts --reporter=line,allure-playwright 2>&1 | tee test-results/ui-ai-test-log.txt || true
+
+
+Running 2 tests using 1 worker
+src/tests/api/specs/ai_posts.spec.ts:26:7 › AI-Enhanced Posts API Tests › AI-based test data generation for 'posts' resource
+AI-generated post data: [
+  {
+    userId: 1,
+    id: 1,
+    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body: 'quia et suscipit\n' +
+      'suscipit reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur'
+  },
+  {
+    userId: 10,
+    id: 2,
+    title: 'qui est esse',
+    body: 'est rerum tempore vitae\n' +
+      'sequi sint nihil reprehenderit dolor beatae ea dolores neque\n' +
+      'fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis'
+  },
+  {
+    userId: 20,
+    id: 3,
+    title: 'et eum quod voluptas tento renuni',
+    body: 'ut labore et dolore magnam\n' +
+      'quo velit explicabo quia nostrum odio culpa veniam non minima temporibus autu00a0autem laborum quasi molestiae qui hic porro qui doloremque nullam'
+  }
+]
+Created post with AI data => {
+  userId: 1,
+  id: 101,
+  title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+  body: 'quia et suscipit\n' +
+    'suscipit reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur'
+}
+Created post with AI data => {
+  userId: 10,
+  id: 101,
+  title: 'qui est esse',
+  body: 'est rerum tempore vitae\n' +
+    'sequi sint nihil reprehenderit dolor beatae ea dolores neque\n' +
+    'fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis'
+}
+Created post with AI data => {
+  userId: 20,
+  id: 101,
+  title: 'et eum quod voluptas tento renuni',
+  body: 'ut labore et dolore magnam\n' +
+    'quo velit explicabo quia nostrum odio culpa veniam non minima temporibus autu00a0autem laborum quasi molestiae qui hic porro qui doloremque nullam'
+}
+src/tests/api/specs/ai_posts.spec.ts:55:7 › AI-Enhanced Posts API Tests › AI-based negative scenarios for 'POST /posts'
+Negative scenarios from AI: [
+  {
+    description: 'Attempting to POST a non-JSON payload',
+    payload: { example: 'application/x-www-form-urlencoded' },
+    expectedStatus: 400,
+    reason: 'The API expects JSON data for the request body.'
+  },
+  {
+    description: 'Sending a POST request to an empty JSON object',
+    payload: {},
+    expectedStatus: 400,
+    reason: 'A valid post object should contain at least title and body properties.'
+  },
+  {
+    description: 'Trying to POST a request without specifying required fields (title or body)',
+    payload: { userId: 1 },
+    expectedStatus: 400,
+    reason: 'The API expects both title and body properties for the post object.'
+  }
+]
+Running negative scenario: Attempting to POST a non-JSON payload
+Scenario expected 400, but got 201
+Response body: { example: 'application/x-www-form-urlencoded', id: 101 }
+Running negative scenario: Sending a POST request to an empty JSON object
+Scenario expected 400, but got 201
+Response body: { id: 101 }
+Running negative scenario: Trying to POST a request without specifying required fields (title or body)
+Scenario expected 400, but got 201
+Response body: { userId: 1, id: 101 }
+  2 passed (14.2s)
+
+> bennu@1.0.0 report:generate
+> allure generate allure-results -o allure-report --clean
+
+Report successfully generated to allure-report
+
+> bennu@1.0.0 report:open
+> allure open allure-report
+
+Starting web server...
+2025-02-17 00:22:58.979:INFO::main: Logging initialized @170ms to org.eclipse.jetty.util.log.StdErrLog
+Server started at <http://192.168.4.28:57702/>. Press <Ctrl+C> to exit

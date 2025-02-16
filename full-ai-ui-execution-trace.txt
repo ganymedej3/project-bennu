@@ -1,0 +1,134 @@
+npm run test:ui:ai:report                                                                           ✔  00:14:41  
+
+> bennu@1.0.0 test:ui:ai:report
+> npm run test:ui:ai && npm run report:generate && npm run report:open
+
+
+> bennu@1.0.0 test:ui:ai
+> playwright test src/tests/ui/specs/ai_*.spec.ts --reporter=line,allure-playwright 2>&1 | tee test-results/ui-ai-test-log.txt || true
+
+
+Running 5 tests using 1 worker
+src/tests/ui/specs/ai_inventory.spec.ts:19:7 › AI-Enhanced Inventory Tests with Fallback › should verify the inventory page grid with AI fallback
+
+        Checking for the purposefully broken locator
+
+Static locator for inventory container is broken. Attempting AI fallback...
+
+      Initiating fallback to AI for: target is the exact css selector for inventory list element inside the main inventory container
+
+      Full HTML length: 16782
+Parsed from raw response:  {
+  "selector": "#inventory_container .inventory_list"
+}
+
+      AI returned new locator for "target is the exact css selector for inventory list element inside the main inventory container": #inventory_container .inventory_list
+
+        Locator found by AI: #inventory_container .inventory_list
+Static locator for inventory items is broken. Attempting AI fallback...
+
+      Initiating fallback to AI for: product cards with images, titles, prices, add-to-cart
+
+      Full HTML length: 16782
+Parsed from raw response:  {
+  "selector": ".inventory_item"
+}
+
+      AI returned new locator for "product cards with images, titles, prices, add-to-cart": .inventory_item
+src/tests/ui/specs/ai_inventory.spec.ts:24:7 › AI-Enhanced Inventory Tests with Fallback › should verify sorting functionality (price high to low)
+Static locator for sort dropdown did not appear within 5s.
+Static locator for sort dropdown is broken. Attempting AI fallback...
+
+      Initiating fallback to AI for: target is the exact css selector for product sort dropdown. find the exact css selector of the element and return "select.xxxxxxxx
+
+      Full HTML length: 16782
+Parsed from raw response:  {
+  "selector": "select.product_sort_container"
+}
+
+      AI returned new locator for "target is the exact css selector for product sort dropdown. find the exact css selector of the element and return "select.xxxxxxxx": select.product_sort_container
+[3/5] src/tests/ui/specs/ai_inventory.spec.ts:29:7 › AI-Enhanced Inventory Tests with Fallback › should verify first product has image/title/description/price/add-to-c
+src/tests/ui/specs/ai_inventory.spec.ts:29:7 › AI-Enhanced Inventory Tests with Fallback › should verify first product has image/title/description/price/add-to-cart
+Broken main items locator during first product check. Falling back to AI...
+
+      Initiating fallback to AI for: product cards with images, titles, prices, add-to-cart
+
+      Full HTML length: 16782
+Parsed from raw response:  {
+  "selector": ".inventory_item"
+}
+
+      AI returned new locator for "product cards with images, titles, prices, add-to-cart": .inventory_item
+Broken sub-locator for product image. Attempting AI fallback...
+Parsed from raw response:  {
+  "selector": "#inventory_container .inventory_item:nth-child(1) .inventory_item_img img"
+}
+Broken sub-locator for product title. Attempting AI fallback...
+Parsed from raw response:  {
+  "selector": ".inventory_item_label a.inventory_item_name"
+}
+Broken sub-locator for product price. Attempting AI fallback...
+Parsed from raw response:  {
+  "selector": "#inventory_container .inventory_item .pricebar .inventory_item_price"
+}
+Broken sub-locator for Add to cart button. Attempting AI fallback...
+Parsed from raw response:  {
+  "selector": "button[data-test='add-to-cart-sauce-labs-backpack']"
+}
+AI returned new locator for "Add to cart button": button[data-test='add-to-cart-sauce-labs-backpack']
+src/tests/ui/specs/ai_inventory.spec.ts:33:7 › AI-Enhanced Inventory Tests with Fallback › should demonstrate how we can do compare-locators AI approach
+Comparison result: {
+  unchanged: {},
+  changed: {
+    inventoryContainerLocator: { old: '.inventory_container_broken', new: '.inventory_container' },
+    inventoryItemsLocator: { old: '.inventory_item_broken', new: '.inventory_item' },
+    sortDropdownLocator: {
+      old: '.product_sort_container_broken',
+      new: '.product_sort_container'
+    }
+  }
+}
+Locator inventoryContainerLocator changed from .inventory_container_broken to .inventory_container
+Locator inventoryItemsLocator changed from .inventory_item_broken to .inventory_item
+Locator sortDropdownLocator changed from .product_sort_container_broken to .product_sort_container
+src/tests/ui/specs/ai_inventory.spec.ts:38:7 › AI-Enhanced Inventory Tests with Fallback › should list top 10 key elements for building page objects
+Key elements JSON saved to: /Users/adityak/dev/ganymede/bennu/src/tests/ui/pages/ai_inventory_elements.json
+Key elements from AI:
+- Description: Header container
+  selectors: { 'data-test': 'header-container' }
+- Description: Primary header
+  selectors: { 'data-test': 'primary-header' }
+- Description: Menu button container
+  selectors: { id: 'menu_button_container' }
+- Description: Inventory sidebar link
+  selectors: { id: 'inventory_sidebar_link', 'data-test': 'inventory-sidebar-link' }
+- Description: Inventory container
+  selectors: { 'data-test': 'inventory-container' }
+- Description: Inventory list
+  selectors: { 'data-test': 'inventory-item' }
+- Description: Inventory item
+  selectors: { 'data-test': 'inventory-item' }
+- Description: Inventory item image
+  selectors: { class: 'inventory_item_img' }
+- Description: Inventory item description
+  selectors: { 'data-test': 'inventory-item-description' }
+- Description: Add to cart button
+  selectors: {
+  class: 'btn btn_primary btn_small btn_inventory',
+  'data-test': 'add-to-cart-*'
+}
+  Slow test file: src/tests/ui/specs/ai_inventory.spec.ts (2.3m)
+  Consider running tests from slow files in parallel, see https://playwright.dev/docs/test-parallel.
+  5 passed (2.3m)
+
+> bennu@1.0.0 report:generate
+> allure generate allure-results -o allure-report --clean
+
+Report successfully generated to allure-report
+
+> bennu@1.0.0 report:open
+> allure open allure-report
+
+Starting web server...
+2025-02-17 00:18:23.212:INFO::main: Logging initialized @160ms to org.eclipse.jetty.util.log.StdErrLog
+Server started at <http://192.168.4.28:56482/>. Press <Ctrl+C> to exit
