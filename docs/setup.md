@@ -44,29 +44,30 @@ brew install ollama
 2. Download and run the Windows installer
 3. Follow the installation prompts
 
-### Setting up CodeLlama
+### Setting up mistral-7b-instruct
 1. Start Ollama server:
 ```bash
 ollama serve
 ```
 
-2. Pull the CodeLlama model:
+2. Pull the mistral model:
 ```bash
-ollama pull codellama:13b
+ollama pull mistral:7b-instruct
 ```
 Note: This is a large download (approximately 8GB) and may take several minutes depending on your internet connection.
 
 3. Verify the installation:
 ```bash
 ollama list
+ollama run mistral:7b-instruct 'Hello'
 ```
-You should see 'codellama:13b' in the list of available models.
+You should see 'mistral:7b-instruct' in the list of available models. You can test the model works by saying hello to it using ollama run.
 
 ## Project Setup
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone [https://github.com/ganymedej3/project-bennu]
 cd bennu
 ```
 
@@ -84,7 +85,7 @@ npx playwright install
 
 1. Configure environment variables (if needed):
    - OLLAMA_URL (defaults to http://localhost:11434)
-   - OLLAMA_MODEL (defaults to codellama:13b)
+   - OLLAMA_MODEL (defaults to mistral:7b-instruct)
 
 ## Verification Steps
 
@@ -122,7 +123,7 @@ This should run the test suite without errors.
 ### Getting Help
 - File an issue on the project repository
 - Check Ollama documentation: https://github.com/ollama/ollama
-- Review CodeLlama documentation: https://github.com/facebookresearch/codellama
+- Review Mistral documentation on huggingface: https://huggingface.co/docs/transformers/en/model_doc/mistral
 
 ## Next Steps
 After completing the setup:
@@ -136,12 +137,3 @@ After completing the setup:
 ```bash
 # Linux/MacOS
 curl https://ollama.ai/install.sh | sh
-
-# Windows
-Download latest version from website
-```
-
-### Updating CodeLlama
-```bash
-ollama pull codellama:13b
-```
