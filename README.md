@@ -8,6 +8,8 @@ UI and API Testing: The framework supports comprehensive testing for both user i
 Visual Verification: Automated visual state verification assists in confirming UI correctness.
 Extensible Architecture: Easily integrate new modules or testing strategies as your application evolves.
 
+> **Note:** Containerization (Docker implementation), Selector Engine, Visual Verifier are parts of the project that are not fully built/tested. Those are features are not essential to demonstrate/execute the key features detailed below.
+
 # Architecture
 ![Architecture Diagram](arch.png)
 
