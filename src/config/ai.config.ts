@@ -197,13 +197,6 @@ Old locators (JSON):
 NEW HTML:
 <<FULL_HTML>>
 `,
-
-    PAGE_STRUCTURE_ANALYSIS: `
-(If you still want it)
-`,
-    SELECTOR_GENERATION_V2: `
-(If you still want it)
-`,
     // ...
   },
   // ...
