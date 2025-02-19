@@ -19,16 +19,14 @@ export interface AIConfig {
     };
   };
   prompts: {
-    // ... existing
     API_DATA_GENERATION: string;
     API_NEGATIVE_SCENARIOS: string;
     KEY_ELEMENT_IDENTIFICATION: string;
     LOCATOR_FALLBACK_ANALYSIS: string;
     LOCATOR_FALLBACK_ANALYSIS_2: string;
     LOCATOR_MAINTENANCE_COMPARE: string;
-    PAGE_STRUCTURE_ANALYSIS: string; // or remove if you like
-    SELECTOR_GENERATION_V2: string; // or remove if you like
-    // etc.
+    PAGE_STRUCTURE_ANALYSIS: string;
+    SELECTOR_GENERATION_V2: string; 
   };
 
   retry: {
