@@ -91,7 +91,7 @@ export class ApiAIManager {
       throw new Error("Invalid JSON from API_DATA_GENERATION");
     }
 
-    /*
+    /* moved this to the llm_response_parser
     try {
       const topLevel = JSON.parse(raw) as ApiAiResponse;
       // 1) remove code fences
@@ -142,7 +142,7 @@ export class ApiAIManager {
         console.error("Error parsing API_NEGATIVE_SCENARIOS output:", raw);
         throw new Error("Invalid JSON from API_NEGATIVE_SCENARIOS");
       }
-    /*
+    /* refactored this to llm_response_parser
     try {
       const topLevel = JSON.parse(raw) as ApiAiResponse;
       // 1) remove code fences
