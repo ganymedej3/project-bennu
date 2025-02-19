@@ -1,4 +1,3 @@
-//import fetch from "node-fetch";
 import { AI_CONFIG } from "../config/ai.config";
 import { LLMResponseParser } from "./llm_response_parser";
 
@@ -17,7 +16,6 @@ export class AIManager {
       prompt,
       model: AI_CONFIG.model.name,
       options: {
-        // remove unsupported
         num_ctx: 8192,
       },
       stream: false,
