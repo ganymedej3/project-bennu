@@ -88,7 +88,6 @@ export class LLMResponseParser {
    */
   static removeInvalidEscapes(input: string): string {
     // Regex approach: match backslash not followed by "\/bfnrt
-    // (?!...) is negative lookahead, meaning if it's not one of the recognized
     return input.replace(/\\(?!["\\/bfnrt])/g, "");
   }
 
